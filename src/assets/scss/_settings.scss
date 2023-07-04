@@ -19,7 +19,7 @@ html {
 }
 
 .page__body {
-  margin: 0;
+  margin: 20px;
   min-width: 320px;
   min-height: 100%;
 
@@ -173,6 +173,11 @@ textarea {
   left: 0;
   z-index: 5;
   width: 100%;
+}
+
+.list-group-item {
+  padding: 10px;
+  border: 1px solid grey;
 }
 
 @media print,
