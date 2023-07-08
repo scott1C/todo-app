@@ -5,11 +5,15 @@ export class Note {
 	_done = false
 
 	constructor(container, name = "", done = false) {
+		this.container = container
 		this.item = document.createElement('div')
 		this.buttonGroup = document.createElement('div')
 		this.nameSpan = document.createElement('span')
 		this.doneButton = document.createElement('button')
 		this.deleteButton = document.createElement('button')
+		this.name = name
+		this.done = done
+
 		this.item.classList.add(
 			'list-group-item',
 			'd-flex',
@@ -36,9 +40,6 @@ export class Note {
 		this.buttonGroup.append(this.deleteButton)
 		this.item.append(this.nameSpan)
 		this.item.append(this.buttonGroup)
-		this.container = container
-		this.name = name
-		this.done = done
 
 		if (container instanceof NoteList) {
 			container.list.append(this.item)

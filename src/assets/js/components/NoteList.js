@@ -45,15 +45,15 @@ export class NoteList {
 
 	checkEmpty() {
 		if (this._notes.length == 0) {
-			this.empty = document.createElement("div");
+			this.empty = document.createElement('div');
 			this.empty.classList.add(
-				"d-flex",
-				"list-group-item",
-				"justify-content-center",
-				"align-items-center",
-				"text-secondary",
-				"bg-light",
-				"p-5"
+				'd-flex',
+				'list-group-item',
+				'justify-content-center',
+				'align-items-center',
+				'text-secondary',
+				'bg-light',
+				'p-5'
 			);
 
 			this.empty.textContent = 'ToDo List is empty'
@@ -90,14 +90,16 @@ export class NoteList {
 				startList = JSON.parse(dataLS)
 		}
 
-		for (const item of startList) {
-			let newNote = new Note(this, item.name, item.done)
-			if (item.id) {
-				newNote.id = item.id
-			} else {
-				newNote.id = Date.now()
+		if (startList.length > 0) {
+			for (const item of startList) {
+				let newNote = new Note(this, item.name, item.done)
+				if (item.id) {
+					newNote.id = item.id
+				} else {
+					newNote.id = Date.now()
+				}
+				this._notes.push(newNote)
 			}
-			this._notes.push(newNote)
 		}
 
 		this.save()
